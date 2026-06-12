@@ -43,7 +43,6 @@ function createBot() {
     let totemTimer = setInterval(() => { checkTotem(bot); }, 1500);
     bot.on('physicTick', () => { if (pvpTargetEntity?.isValid) bot.lookAt(pvpTargetEntity.position.offset(0, 1.6, 0)); });
 
-    // Универсальная функция добычи блоков по их ID
     async function startMining(blockIds, typeName, callback) {
         if (!bot.inventory || isDeadNow) return;
         const targets = bot.findBlocks({ matching: blockIds, maxDistance: 32, count: 5 });
@@ -166,3 +165,4 @@ async function equipArmor(bot) {
     const types = ['helmet', 'chestplate', 'leggings', 'boots'];
     for (let index = 0; index < types.length; index++) {
         const type = types[index];
+        const items = bot.inventory.items().filter(item => {
