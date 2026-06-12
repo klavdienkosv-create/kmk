@@ -20,7 +20,7 @@ function createBot() {
     bot.loadPlugin(pathfinder); bot.loadPlugin(collectBlock);
 
     bot.on('spawn', () => {
-        console.log(`[Система] Бот ${bot.username} зашел на server.`); isDeadNow = false;
+        console.log(`[Система] Бот ${bot.username} зашел на сервер.`); isDeadNow = false;
         setTimeout(() => { if (bot.entity) bot.chat('/games'); }, 4000);
         setTimeout(() => {
             if (bot.inventory && bot.inventory.items().length === 0) {
@@ -166,4 +166,3 @@ async function equipArmor(bot) {
     const types = ['helmet', 'chestplate', 'leggings', 'boots'];
     for (let index = 0; index < types.length; index++) {
         const type = types[index];
-
